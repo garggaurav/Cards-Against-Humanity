@@ -1,0 +1,23 @@
+<template name='home'>
+	{{> signupLogin}}
+	{{#if currentUser}}
+		{{> gameList}}
+	{{/if}}
+</template>
+
+
+<template name='gameList'>
+<div class='column'>
+        <h1> Games </h1>
+        <p> Choose a game: </p>
+        <ul>
+            {{#each games}}
+                {{> gameItem}} 
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name='gameItem'>
+	<li><button>{{_id}}</button></li>
+	</template>
