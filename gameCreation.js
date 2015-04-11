@@ -27,7 +27,6 @@ GameFactory.createGame = function (playerId) {
 		numPlayers: 1,
 		createdBy: creatorName
 	};
-
 };
 
 GameFactory.dealPlayers = function (players, white_deck) {
@@ -61,9 +60,7 @@ GameFactory.addPlayer = function (GameId, playerId) {
 }
 
 function dealTable(black_deck) {
-
 	return black_deck.shift();
-
 }
 
 
@@ -101,7 +98,7 @@ var bCards = ["_?  There's an app for that.",
 "What's that smell?",
 "I got 99 problems but _ ain't one.",
 "Maybe she's born with it.  Maybe it's _.",
-"What's the next Happy Meal&copy; toy?",
+"What's the next Happy Meal toy?",
 "Anthropologists have recently discovered a primitive tribe that worships _.",
 "It's a pity that kids these days are all getting involved with _.",
 "During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of _.",

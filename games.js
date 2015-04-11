@@ -25,6 +25,10 @@ createGame: function(userId) {
 
 joinGame: function(gameId, userId) {
 	GameFactory.addPlayer(gameId, Meteor.userId());
+}, 
+
+takeTurn: function(){
+
 }
 
 });
