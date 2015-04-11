@@ -8,9 +8,7 @@ GameFactory.createGame = function (playerId) {
 	var wdeck = createWDeck();
 	var bdeck = createBDeck();
 	var players = [createPlayer(playerId)];
-	console.log(playerId);
 	var playerIds = [playerId];
-	console.log(playerIds[0]);
 	var creatorName = Meteor.user();
 	players[0].czar = true; // Set first player to be the czar.
 

@@ -5,15 +5,12 @@ Template.gameList.helpers({
 
 Template.gameItem.events({
 	'click button': function (evt, template) {
-		console.log(this._id);
-		console.log(this.userId);
-		Meteor.call('joinGame', this._id , Meteor.userId);
+		Meteor.call('joinGame', this._id , Meteor.userId());
 	}
 });
 
 Template.newGame.events({
 	'click button': function (evt, template) {
-		console.log(this.userId);
-		Meteor.call('createGame', Meteor.userId);
+		Meteor.call('createGame', Meteor.userId());
 	}
 });

@@ -19,12 +19,12 @@ if (Meteor.isClient) {
 
 Meteor.methods({
 createGame: function(userId) {
-	var game = GameFactory.createGame(userId);
+	var game = GameFactory.createGame(Meteor.userId());
 	Games.insert(game);
 },
 
 joinGame: function(gameId, userId) {
-	GameFactory.addPlayer(gameId, userId);
+	GameFactory.addPlayer(gameId, Meteor.userId());
 }
 
 });
