@@ -5,10 +5,10 @@
 	{{/if}}
 </template>
 
-
 <template name='gameList'>
 <div class='column'>
         <h1> Games </h1>
+        {{> newGame}}
         <p> Choose a game: </p>
         <ul>
             {{#each games}}
@@ -21,3 +21,8 @@
 <template name='gameItem'>
 	<li><button>{{_id}}</button></li>
 	</template>
+
+<template name='newGame'>
+    <button>New Game</button>
+    </template>
+

@@ -1,16 +1,19 @@
 Template.gameList.helpers({
-	
 	games: function() {
-			
-	Games.find({inProgress:true}).map(function (game) 
-			{
-			game.started = moment(game.started).fromNow();
-			return game;
-		});
+	return Games.find({inProgress:true});
 }});
 
 Template.gameItem.events({
 	'click button': function (evt, template) {
-		Meteor.call('createGame', template.data._id);
+		console.log(this._id);
+		console.log(this.userId);
+		Meteor.call('joinGame', this._id , Meteor.userId);
+	}
+});
+
+Template.newGame.events({
+	'click button': function (evt, template) {
+		console.log(this.userId);
+		Meteor.call('createGame', Meteor.userId);
 	}
 });
