@@ -4,7 +4,8 @@ Template.gameList.helpers({
 }});
 
 Template.gameItem.events({
-	'click button': function (evt, template) {
+	'submit form': function (evt) {
+		console.log("Join Game attempted");
 		Meteor.call('joinGame', this._id , Meteor.userId());
 	}
 });

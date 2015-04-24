@@ -24,11 +24,13 @@ createGame: function(userId) {
 },
 
 joinGame: function(gameId, userId) {
-	GameFactory.addPlayer(gameId, Meteor.userId());
+	game = GameFactory.addPlayer(gameId, Meteor.userId());
+	console.log("Update Operation: " +Games.update({_id:gameId}, game));
 }, 
 
-takeTurn: function(){
-
+selectCard: function(gameId, card){
+	game = GameFactory.addCard(gameId, card);
+	console.log("Add Card Operation: " +Games.update({_id:gameId}, game));
 }
 
 });

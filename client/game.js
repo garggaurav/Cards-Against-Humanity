@@ -1,14 +1,38 @@
-Template.blackCard.helpers({
+Template.whiteCard.helpers({
 	cards: function (){
-		console.log("Black cards of Game: "+ this._id);
-		var playersArr = Games.find({_id:this._id}).fetch()[0].players;
-		console.log(playersArr);
-		var player = playersArr.filter(function (obj) {
+		game = Games.find({_id:this._id}).fetch()[0]
+		playersArr = game.players;
+		player = playersArr.filter(function (obj) {
 		    return obj.id == Meteor.userId();
 		})[0];
-		console.log(player);
-
-		return player.hand;
+		if(player.czar == false)
+			return player.hand;
+		else
+			return ["YOU ARE THE CZAR"];
 	}
 
 });
+
+Template.whiteCard.events({
+	'click .whiteSelect' : function(e) {
+        var clickedButton = e.currentTarget;
+        var cardSelected = $(clickedButton).val();
+        var cardObj = document.getElementsByClassName("whiteSelect"); //All Radio buttons
+
+        if(player.cardSelected == null && player.czar == false)
+        	Meteor.call("selectCard", game._id, {card: cardSelected, player: Meteor.userId()})
+        //Disable all buttons after selection
+        $.map(cardObj, function (obj){
+        	obj.disabled = true;
+        });
+    }
+});
+
+Template.selectedCards.helpers({
+	chosenCards: function(){
+		game = Games.find({_id:this._id}).fetch()[0];
+		if(player.czar == false)
+			return [player.cardSelected];
+	}
+});
+

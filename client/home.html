@@ -19,7 +19,9 @@
 </template>
 
 <template name='gameItem'>
-	<li><button>{{createdBy.username}} &nbsp; {{numPlayers}}</button></li>
+        <form class="gameid" action="/game/{{this._id}}">
+        <input type="submit" value="{{createdBy.username}} &nbsp; {{numPlayers}}">
+        </form>
 	</template>
 
 <template name='newGame'>

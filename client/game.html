@@ -1,13 +1,15 @@
 <template name='game'>
-	<p>White Card: </p> {{table}}
-	<p>Black Cards: </p>
+	<p><b>Black Card:</b> </p> {{table}}
+	<p><b>White Cards:</b> </p>
 	{{#if currentUser}}
-		{{> blackCard}}
+		{{> whiteCard}}
 	{{/if}}
+
+	<p>Selected Card:</p>
+	{{> selectedCards}}
 </template>
 
-
-<template name='blackCard'>
+<template name='whiteCard'>
 	<form action="">
     {{#each cards}}
         {{> cardQuote}} 
@@ -15,6 +17,12 @@
 	</form>
 </template>
 
+<template name='selectedCards'>
+	{{#each chosenCards}}
+        {{card}} 
+    {{/each}}
+</template>
+
 <template name='cardQuote'>
-	<input type="radio" name="sex" value="male">{{this}}<br>
+	<input type="radio" name="card" class="whiteSelect" value="{{this}}">{{this}}<br>
 </template>
