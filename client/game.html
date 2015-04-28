@@ -1,12 +1,24 @@
+<template name='header'>
+	<p><b>Player Name: </b>{{player.username}}&nbsp;&nbsp;&nbsp;&nbsp;<b>Score: </b>{{player.score}}</p>
+	<p><b>Czar: </b>{{game.czar.username}}&nbsp;&nbsp;&nbsp;&nbsp;<b>Players: </b>{{game.numPlayers}}</p>
+</template>
+
 <template name='game'>
+	{{>header}}
+<hr>
 	<p><b>Black Card:</b> </p> {{table}}
 	<p><b>White Cards:</b> </p>
-	{{#if currentUser}}
+	{{#if notCzar}}
 		{{> whiteCard}}
+		{{else}}
+		YOU ARE THE CZAR
 	{{/if}}
 
 	<p><b>Selected Card:</b></p>
 	{{> UI.dynamic template=myTemplate}}
+
+	<p><b>Winner:</b></p>
+	{{> Winner}}
 </template>
 
 <template name='whiteCard'>
@@ -27,6 +39,18 @@
 	{{#each selectedCards}}
         {{> chosenCardQuote}} 
     {{/each}}
+</template>
+
+<template name='Winner'>
+	{{#if thisWinner}}
+		{{thisWinner.cardQuote}}
+		({{thisWinner.player.username}})
+	{{/if}}
+	{{#if czar}}
+	<br>
+	<br>
+	<input type="button" id="nextTurn" value="Next Turn" />
+	{{/if}}
 </template>
 
 <template name='chosenCardQuote'>
