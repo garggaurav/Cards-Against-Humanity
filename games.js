@@ -1,5 +1,3 @@
-
-NUMPLAYERS = 3;
 Games = new Meteor.Collection('games');
 
 if (Meteor.isServer) {

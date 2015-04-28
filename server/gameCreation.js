@@ -59,6 +59,7 @@ GameFactory.addPlayer = function (GameId, playerId) {
 	else
 	{
 		console.log("Player not added. "+game.numPlayers);
+		return game;
 	}
 }
 
