@@ -1,3 +1,18 @@
+
+Template.game.helpers({
+	myTemplate: function(){
+		if(player.czar==false)
+			return "selectedCards";
+		return "selectedCardsCzar";
+	}
+});
+
+Template.selectedCardsCzar.helpers({
+	selectedCards: function(){
+		return game.chosenCards;
+	}
+});
+
 Template.whiteCard.helpers({
 	cards: function (){
 		game = Games.find({_id:this._id}).fetch()[0]
@@ -10,7 +25,6 @@ Template.whiteCard.helpers({
 		else
 			return ["YOU ARE THE CZAR"];
 	}
-
 });
 
 Template.whiteCard.events({

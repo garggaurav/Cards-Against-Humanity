@@ -5,8 +5,8 @@
 		{{> whiteCard}}
 	{{/if}}
 
-	<p>Selected Card:</p>
-	{{> selectedCards}}
+	<p><b>Selected Card:</b></p>
+	{{> UI.dynamic template=myTemplate}}
 </template>
 
 <template name='whiteCard'>
@@ -21,6 +21,16 @@
 	{{#each chosenCards}}
         {{card}} 
     {{/each}}
+</template>
+
+<template name='selectedCardsCzar'>
+	{{#each selectedCards}}
+        {{> chosenCardQuote}} 
+    {{/each}}
+</template>
+
+<template name='chosenCardQuote'>
+	<input type="radio" name="card" class="chosenSelect" value="{{card}}">{{card}}<br>
 </template>
 
 <template name='cardQuote'>

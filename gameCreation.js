@@ -1,7 +1,7 @@
 GameFactory = {};
 
 
-WHITECARDSNO = 3;
+WHITECARDSNO = 9;
 
 GameFactory.createGame = function (playerId) {
 	console.log("Game creation called.");
@@ -97,37 +97,11 @@ function createPlayer(id) {
 	return o;
 }
 
-
-
 function createWDeck() {
-
-var wCards = ["Flying sex snakes.",
-"Michelle Obama's arms.",
-"German dungeon porn.",
-"White people.",
-"Getting so angry that you pop a boner.",
-"Tasteful sideboob.",
-"Praying the gay away.",
-"Two midgets shitting into a bucket.",
-"MechaHitler.",
-"Being a motherfucking sorcerer."];
-
-return _.shuffle(wCards);
+	return _.shuffle(wCards);
 }
 
 function createBDeck() {
-
-var bCards = ["_?  There's an app for that.", 
-"Why can't I sleep at night?",
-"What's that smell?",
-"I got 99 problems but _ ain't one.",
-"Maybe she's born with it.  Maybe it's _.",
-"What's the next Happy Meal toy?",
-"Anthropologists have recently discovered a primitive tribe that worships _.",
-"It's a pity that kids these days are all getting involved with _.",
-"During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of _.",
-"Alternative medicine is now embracing the curative powers of _."];
-
-return _.shuffle(bCards);
+	return _.shuffle(bCards);
 
 }
