@@ -1,6 +1,10 @@
 <template name='header'>
 	<p><b>Player Name: </b>{{player.username}}&nbsp;&nbsp;&nbsp;&nbsp;<b>Score: </b>{{player.score}}</p>
-	<p><b>Czar: </b>{{game.czar.username}}&nbsp;&nbsp;&nbsp;&nbsp;<b>Players: </b>{{game.numPlayers}}</p>
+	<p><b>Czar: </b>{{game.czar.username}}&nbsp;&nbsp;&nbsp;&nbsp;<b>Players: </b>{{game.numPlayers}}&nbsp;&nbsp;&nbsp;&nbsp;
+	<b>Scoreboard: </b>|
+		{{#each playersArr}}
+        	{{username}}: {{score}} |
+    	{{/each}}</p>
 </template>
 
 <template name='game'>
@@ -14,7 +18,7 @@
 		YOU ARE THE CZAR
 	{{/if}}
 
-	<p><b>Selected Card:</b></p>
+	<p><b>Selected Cards:</b></p>
 	{{> UI.dynamic template=myTemplate}}
 
 	<p><b>Winner:</b></p>
@@ -31,7 +35,7 @@
 
 <template name='selectedCards'>
 	{{#each chosenCards}}
-        {{card}} 
+        {{card}} <br>
     {{/each}}
 </template>
 

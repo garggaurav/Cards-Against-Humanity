@@ -36,7 +36,7 @@ GameFactory.dealPlayers = function (players, white_deck) {
 
 	for(var i=0; i<players.length; i++)
 	{
-		while(players[i].hand.length <= WHITECARDSNO)
+		while(players[i].hand.length < WHITECARDSNO)
 		{
 			players[i].hand.push(white_deck.shift());
 		}
@@ -104,6 +104,7 @@ GameFactory.nextTurn = function(gameId, callerId)
 			flag = 1; //Czar is set.
 		}
 	}
+	GameFactory.dealPlayers(game.players, game.white_deck);
 	game.thisWinner = null;
 	return game;
 }
