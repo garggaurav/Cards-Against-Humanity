@@ -67,8 +67,17 @@ GameFactory.addPlayer = function (GameId, playerId) {
 GameFactory.addCard = function(gameId, card)
 {
 	var game = Games.find({ _id: gameId}).fetch()[0];
-	game.chosenCards.push(card);
 
+	for(var i=0; i<game.chosenCards.length; i++)
+	{
+		if(game.chosenCards[i].player === card.player)
+		{	
+			console.log("Player already on chosenCards list");
+			return game;
+		}
+	}
+
+	game.chosenCards.push(card);
 	playersArr = game.players;
 	player = playersArr.filter(function (obj) {
 	    return obj.id == Meteor.userId();
